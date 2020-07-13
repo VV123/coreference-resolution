@@ -1,6 +1,8 @@
 from bert import tokenization
 import json
 
+genre = 'nw'
+model_name = 'spanbert_large'
 data = {
     'doc_key': genre,
     'sentences': [["[CLS]"]],
