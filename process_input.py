@@ -28,6 +28,7 @@ with open('input.txt', 'r') as f:
         l = l.strip('\n')
         text.append(l)
 
+out = open("sample.in.json", 'w') 
 for sent_num, line in enumerate(text):
     raw_tokens = line.split()
     tokens = tokenizer.tokenize(line)
@@ -59,10 +60,11 @@ for sent_num, line in enumerate(text):
         else:
             ctoken = ctoken[len(token):]
 
-data['sentences'][-1].append("[SEP]")
-data['speakers'][-1].append("[SPL]")
-data['sentence_map'].append(sent_num - 1)
-data['subtoken_map'].append(subtoken_num - 1)
+    data['sentences'][-1].append("[SEP]")
+    data['speakers'][-1].append("[SPL]")
+    data['sentence_map'].append(sent_num - 1)
+    data['subtoken_map'].append(subtoken_num - 1)
 
-with open("sample.in.json", 'w') as out:
-    json.dump(data, out, sort_keys=True)
+
+    out.write(json.dump(data, out, sort_keys=True)+'\n')
+out.close()
