@@ -68,5 +68,5 @@ for sent_num, line in enumerate(text):
     data['subtoken_map'].append(subtoken_num - 1)
 
 
-    out.write(json.dump(data, out, sort_keys=True)+'\n')
+    out.write(json.dumps(data)+'\n')
 out.close()
