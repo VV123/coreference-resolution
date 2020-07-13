@@ -3,14 +3,7 @@ import json
 
 genre = 'nw'
 model_name = 'spanbert_large'
-data = {
-    'doc_key': genre,
-    'sentences': [["[CLS]"]],
-    'speakers': [["[SPL]"]],
-    'clusters': [],
-    'sentence_map': [0],
-    'subtoken_map': [0],
-}
+
 
 # Determine Max Segment
 max_segment = None
@@ -32,6 +25,15 @@ with open('input.txt', 'r') as f:
 
 out = open("sample.in.json", 'w') 
 for sent_num, line in enumerate(text):
+    
+    data = {
+        'doc_key': genre,
+        'sentences': [["[CLS]"]],
+        'speakers': [["[SPL]"]],
+        'clusters': [],
+        'sentence_map': [0],
+        'subtoken_map': [0],
+    }
     raw_tokens = line.split()
     tokens = tokenizer.tokenize(line)
     if len(tokens) + len(data['sentences'][-1]) >= max_segment:
