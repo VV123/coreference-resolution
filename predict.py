@@ -38,5 +38,5 @@ if __name__ == "__main__":
 
           output_file.write(json.dumps(example))
           output_file.write("\n")
-          if example_num % 100 == 0:
-            print("Decoded {} examples.".format(example_num + 1))
+         
+          print("Decoded {} examples.".format(example_num + 1))
